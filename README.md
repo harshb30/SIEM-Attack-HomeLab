@@ -38,14 +38,20 @@ The objective was to:
 1. **Show failed logon attempts** — generate a high volume of failed authentication attempts that would produce a clear, detectable pattern within the Windows Security Event Log.
 2. **Show a successful login attempt** — and to understand what the usual Event ID codes are for both successful and failed attempts.
 
+### Port Scanning
+
+```bash
+nmap -p 22,80,443,3389 10.0.2.130
+```
+
 ### Brute-Force Execution
 
 ```bash
 # Failed attempt
-hydra -L users.txt -P passwords.txt rdp://10.0.2.x
+hydra -L users.txt -P passwords.txt rdp://10.0.2.130
 
 # Successful attempt
-hydra -L real_users.txt -P real_pass.txt rdp://10.0.2.x
+hydra -L real_users.txt -P real_pass.txt rdp://10.0.2.130
 ```
 
 The attack produces a flood of **Event ID 4625** entries (failed logon attempts), all originating from a single source IP within a narrow time window. It is precisely this pattern that a SIEM should surface and what the detection and analysis phase of this lab was designed to validate.
