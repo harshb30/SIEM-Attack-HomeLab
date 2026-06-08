@@ -57,3 +57,26 @@ hydra -L real_users.txt -P real_pass.txt rdp://10.0.2.130
 The attack produces a flood of **Event ID 4625** entries (failed logon attempts), all originating from a single source IP within a narrow time window. It is precisely this pattern that a SIEM should surface and what the detection and analysis phase of this lab was designed to validate.
 
 The attack later produces a successful **Event ID 4624** login attempt after using valid credentials in txt files used for Hydra brute force.
+
+## The Defence SIEM
+
+The main focus was to detect a brute-force attack which is indicated by Windows Event ID 4625 (Failed Logon) or Event ID 4624(Successful Logon). Following query was used to identify targeted accounts but also filter out machine accounts (*$) and placeholder values (-) by excluding them.
+
+```bash
+#Query for failed logon
+index="*" EventCode=4625 | stats count by Account_Name | search Account_Name!="-" NOT Account_Name="*$" | sort - count
+```
+
+To confirm account compromise Event ID 4624 (Successful Logon) was checked:
+
+```bash
+#Query for successful logon
+index="*" EventCode=4624 Account_Name="HARSH-WIN"
+```
+
+The logs revealed a successful Logon Type 3 which indicates network logon and was authenticated remotely.
+
+## Remediation
+1. Enforce Account Lockout Policies(example: 3 tries in 30 minutes only).
+2. Restrict RDP (Port 3389) exposure.
+3. Enable Network Level Authentication for RDP.
