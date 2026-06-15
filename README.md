@@ -1,5 +1,10 @@
 # Enterprise SIEM Lab: Brute-Force Detection & SIEM
 
+![Splunk](https://img.shields.io/badge/splunk-000000?style=for-the-badge&logo=splunk&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![Kali](https://img.shields.io/badge/Kali-%23557C94.svg?style=for-the-badge&logo=kalilinux&logoColor=white)
+![Windows](https://img.shields.io/badge/Windows-%230078D6.svg?style=for-the-badge&logo=windows&logoColor=white)
+
 ## Objective
 
 The goal of this project was to build an isolated virtual network from scratch then use it to simulate a real brute-force attack against a Windows endpoint with Splunk on Ubuntu Server serving as the central SIEM for log collection and analysis. Kali Linux was used for mimicking a brute force attack on the Windows endpoint.
