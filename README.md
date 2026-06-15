@@ -1,9 +1,10 @@
 # Enterprise SIEM Lab: Brute-Force Detection & SIEM
 
-![Splunk](https://img.shields.io/badge/splunk-000000?style=for-the-badge&logo=splunk&logoColor=white)
+![VMware](https://img.shields.io/badge/VMware_Workstation-%2356595D.svg?style=for-the-badge&logo=vmware&logoColor=white)
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![Kali](https://img.shields.io/badge/Kali-%23557C94.svg?style=for-the-badge&logo=kalilinux&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-%230078D6.svg?style=for-the-badge&logo=windows&logoColor=white)
+![Splunk](https://img.shields.io/badge/splunk-000000?style=for-the-badge&logo=splunk&logoColor=white)
 
 ## Objective
 
